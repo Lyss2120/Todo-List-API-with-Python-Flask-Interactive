@@ -19,13 +19,22 @@ def add_new_todo():
     print("Incoming request with the following body", request_body)
     return jsonify(todos)
 
+# @app.route('/todos/<int:position>', methods=['DELETE'])
+# def delete_todo(position):
+#     # request_body = request.data
+#     # decoded_object = json.loads(request_body)
+#     # todos.pop(position)
+#     print("This is the position to delete: ", position)
+#     return jsonify(todos)
+
 @app.route('/todos/<int:position>', methods=['DELETE'])
 def delete_todo(position):
-    
-    print("This is the position to delete: ", position)
-    return 'something'
-
-
+    parametros = request.get_json()
+    todos.pop(position)
+    print("This is the position to delete: ",position)
+    return jsonify(todos)
+    # borra todos los que agregue con POST solo deja el primero 
+    #por defecto
 
 
 

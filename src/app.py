@@ -29,12 +29,12 @@ def add_new_todo():
 
 @app.route('/todos/<int:position>', methods=['DELETE'])
 def delete_todo(position):
-    parametros = request.get_json()
-    todos.pop(position)
+    
     print("This is the position to delete: ",position)
+    # todos.pop(position) porqueeee no funciono asii
+    del todos[position]
     return jsonify(todos)
-    # borra todos los que agregue con POST solo deja el primero 
-    #por defecto
+   
 
 
 
